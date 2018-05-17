@@ -1,0 +1,27 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "burger application",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madinah2491/Burger.git"
+  },
+  "author": "Madinah Nelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Madinah2491/Burger/issues"
+  },
+  "homepage": "https://github.com/Madinah2491/Burger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
+    "mysql": "^2.15.0"
+  }
+}
