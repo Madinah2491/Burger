@@ -1,1 +1,51 @@
-<p>Connected :)</p>
+{{!-- <p>Connected :)</p> --}}
+{{!-- <link rel= "stylesheet" type="text/css" href= "/Homework-assignments/Burger/public/assets/burger_style.css"> --}}
+
+<div class="container" style= "float:right">
+    <div class= "row">
+        <div class="col-xl-12 text-center">
+            <h1>Eat a Burger Yum!</h1>
+        </div>       
+        <div class="col-md-6 text-center">
+            <div class= "row">
+                {{!-- loops thru the data and for each will post this.id & burger name --}}
+                {{#each burger_data}}
+                    {{#unless this.devoured}}
+                <div class="col-xs-9 text-center">
+                    <pre>{{this.id}}.{{this.burger_name}}</pre>
+                {{!-- <div class="images"><img src = "http://www.freepngimg.com/png/10726-burger-png-image"></div> --}}
+
+                </div>
+                <div class="col-xs-3 text-center">
+                    <form method = "POST" action = "/burgers/update?_method=Put" class= "button-size">
+                        <input type = "hidden" name= "burger_id" type = "text" value = {{this.id}}>
+                        <br>
+                        {{!-- when clicked will send info back to the server unless it is devoured --}}
+                        <button type = "submit" class = "btn btn-default">Devour!</button>
+                    </form> 
+                </div>
+                    {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+        <div class="col-xs-6 text=center" class="task">
+            {{#each burger_data}}
+                {{#if this.devoured}}
+                <input class= "form-control" type="text" placeholder="{{this.id}}.{{ this.burger_name}}" readonly>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class= "container">
+    <div class = "row">
+        <div class="col-xl-12 text-center enter-section" >
+            <form action="/burgers/create"method="POST">
+            <input type="text" name="burger_name" class="form-control" id="enter_text" >
+            <button type = "submit" class = "btn btn-primary">Submit</button>
+            </form>
+        <p>Click the Burger You Want to eat first!!</p>
+        </div>
+    </div>
+</div>

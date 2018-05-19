@@ -4,6 +4,9 @@ var mysql = require ("mysql");
 var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 var app = express();
+var router = ("./controllers");
+
+var Port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -17,10 +20,11 @@ app.engine('handlebars', exphbs({
 }));
 
 app.set('view engine', 'handlebars');
-var Port = 3000;
 
-var router = require('./controllers/router');
-app.use('/', router);
+var routes = require("./controllers/burgers_controller.js")
+
+app.use(routes);
+// ('/', router);
 
 app.listen(Port);
 console.log("connected on port" + Port);
