@@ -32,6 +32,7 @@ var orm = {
     delete: function(tableInput, val, cb) {
         connection.query("DELETE FROM " + tableInput + ' Set devoured =true WHERE id = ' +condition+ ';',
          function(err, result) {
+            if (err) throw err;
           cb(result);
         });
     }
